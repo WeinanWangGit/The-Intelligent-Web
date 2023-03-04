@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <p><%=title%></p>
+    <p>Insert two number to calculate their sum</p>
+    <form action="/add" method="POST">
+      <label for="firstNo">First number:</label><br>
+      <input type="text" id="firstNo" name="firstNo"><br>
+      <label for="secondNo">Second number:</label><br>
+      <input type="text" id="secondNo" name="secondNo"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

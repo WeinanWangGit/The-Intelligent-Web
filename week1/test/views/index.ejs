@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body onload="checkCredentials(<%=login_is_correct %>)">
+  <script>
+    function checkCredentials(login_is_correct) {
+      console.log(login_is_correct);
+      if(login_is_correct == false){
+        alert("login or password is incorrect");
+      }
+    }
+  </script>
+    <p>This is the home for COM3504/6504 Lab Classs. Please login</a> </p>
+    <form action="/welcome" method="POST">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Password:</label><br>
+      <input type="text" id="password" name="password"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

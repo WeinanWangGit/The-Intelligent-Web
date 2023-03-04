@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+  <table>
+    <% data.children.forEach((i) => { %>
+      <tr>
+        <td><img src="<%= i.data.thumbnail; %>"></td>
+        <td><a href="https://www.reddit.com<%= i.data.permalink; %>"/>reddit.com<%= i.data.permalink; %></td>
+      </tr>
+    <% }); %>
+  </table>
+  </body>
+</html>
