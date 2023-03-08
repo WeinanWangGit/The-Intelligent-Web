@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const message = document.getElementById("message")
+      const VISIT = "visits"
+      function setVisits(visit) {
+        try {
+          window.localStorage.setItem(VISIT, JSON.stringify(visit))
+        } catch (error) {
+          console.error(error)
+        }
+      }
+
+      function getVisits() {
+        let result = {recent: 0, total: 0}
+        try {
+          const stored = window.localStorage.getItem(VISIT)
+          if (stored) {
+            result = JSON.parse(stored)
+          }
+        } catch (error) {
+          console.error(error)
+        }
+        return result
+      }
+      let visit = getVisits()
+      message.innerText = `You've been here ${visit.recent} times before,${visit.total} in total`
+      visit.recent++
+      visit.total++
+      setVisits(visit)
+
+      document.getElementById("reset_btn").addEventListener("click", function(){
+        visit.recent = 0
+        setVisits(visit)
+        message.innerText = "Count reset ..."
+      })
+    });
+  </script>
+</head>
+<body>
+<span id="message">Local loading...</span>
+<br>
+<input id="reset_btn" type="button" value="Reset"/>
+</body>
+</html>
