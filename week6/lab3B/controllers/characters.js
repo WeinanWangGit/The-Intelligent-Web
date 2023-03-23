@@ -24,15 +24,18 @@ exports.insert = function (req, res) {
 exports.create = function (req, res) {
     var userData = req.body;
     var character = new Character({
-        first_name: userData.firstname,
+        first_name: userData.firstName,
         family_name: userData.familyName,
-        dob: userData.year,
+        dob: userData.dob,
         img: req.file.path
     });
-    character.save(function (err) {
-        if (err) { return next(err); }
-        res.redirect('/characters');
+
+    character.save(function (err, results) {
+        if(err) throw err;
+        console.log(results._id);
     });
+
+    res.json({character: character});
 };
 
 

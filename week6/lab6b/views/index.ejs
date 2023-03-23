@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/menu.css' />
+  <link rel="manifest" href="/manifest.json">
+</head>
+
+<body>
+<div class="container">
+  <div class="header">
+    <!-- Header content here -->
+    <% include ../public/partials/header.ejs %>
+  </div>
+  <div class="main">
+    <!-- Main content here -->
+    <main class="content">
+      <h1><%= title %></h1>
+      <img src="<%= path %>" alt="<%= title %>" id="img_day">
+      <p><%= description %></p>
+    </main>
+  </div>
+  <div class="footer">
+    <!-- Footer content here -->
+    <% include ../public/partials/footer.ejs %>
+  </div>
+
+</div>
+</div>
+
+</body>
+<script>
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js', { scope: '/' });
+  }
+</script>
+</html>
+
